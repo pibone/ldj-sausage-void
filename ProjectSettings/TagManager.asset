@@ -8,6 +8,7 @@ TagManager:
   - Canvas
   - Metaball_liquid
   - gameControllerObject
+  - man
   layers:
   - Default
   - TransparentFX
