@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     float Thirstyness = 0;
 
+    bool busy=false;
 
     // Start is called before the first frame update
     void Start()
@@ -94,5 +95,17 @@ public class GameController : MonoBehaviour
     public void ResetThirstyness()
     {
         this.Thirstyness = 0;
+    }
+    public void busyTrue()
+    {
+        this.busy=true;
+    }
+    public void busyFalse()
+    {
+        this.busy=false;
+    }
+    public bool isBusy()
+    {
+        return this.busy;
     }
 }

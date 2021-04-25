@@ -6,10 +6,11 @@ public class SwallowButtonScript : MonoBehaviour
 {
     public Camera cam;
     public GameObject stomach;
+    private GameController gameControllerObject;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameControllerObject = GameObject.FindWithTag("gameControllerObject").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class SwallowButtonScript : MonoBehaviour
    }*/
     }
     void OnMouseDown(){
+
          // this object was clicked - do something
          int n_chews = Random.Range(2,7);
          float init_prob=90f;
