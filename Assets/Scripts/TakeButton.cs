@@ -7,6 +7,7 @@ public class TakeButton : MonoBehaviour
     private int n_chews;
     private bool listening;
     private GameController gameControllerObject;
+    public float thirstynessFactor = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,8 @@ public class TakeButton : MonoBehaviour
         if (listening){
             if (Input.GetKeyDown (KeyCode.Space)) {
                 n_chews += 1;
+                //chewing increases thistyness
+                gameControllerObject.AddThirstyness(1);
             if (n_chews > 1)
                 Debug.Log("Pressed " + n_chews + " times.");
             else
@@ -43,7 +46,13 @@ public class TakeButton : MonoBehaviour
             listening = true;
             yield return new WaitForSeconds(1);
             listening=false;
+
             // extend chewing animation for X seconds
+            // chewing animation time depends on thirstyness
+            Debug.Log("Still chewing. Thisrt level: " + gameControllerObject.GetThirstyness());
+            float chewTime = 0.5f+gameControllerObject.GetThirstyness()*thirstynessFactor/100f;
+            yield return new WaitForSeconds(gameControllerObject.RetrieveBoundedValue(chewTime*gameControllerObject.GetNChews()-1f,0.5f,10f));
+            Debug.Log("Finished Chewing!!");
 
             // Stop chewing animation 
             gameControllerObject.SetNChews(n_chews);

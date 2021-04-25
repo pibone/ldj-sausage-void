@@ -19,26 +19,29 @@ public class SwallowButtonScript : MonoBehaviour
     }
     void OnMouseDown(){
       if (gameControllerObject.isBusy()==false){
-        gameControllerObject.busyTrue();
-        int n_chews = gameControllerObject.GetNChews();
-         //int n_chews = Random.Range(2,7); //this is for tests
-         float init_prob=90f;
-         Debug.Log("chews "+n_chews);
+        if (gameControllerObject.GetNChews()>0){
+          gameControllerObject.busyTrue();
+          int n_chews = gameControllerObject.GetNChews();
+          //int n_chews = Random.Range(2,7); //this is for tests
+          float init_prob=90f;
+          Debug.Log("chews "+n_chews);
 
-         int n_pieces = abnormalRandom(n_chews,init_prob);
+          int n_pieces = abnormalRandom(n_chews,init_prob);
 
-         int size = 8;
-         int Msize=size-n_pieces+1;
-         for (int j = 0; j<n_pieces; j++){
-             Msize=size-(n_pieces-j)+1;
-             int s = Random.Range(1,Msize);
-             stomach.GetComponent<SpamFood>().AddObject(s);
-             size=size-s;
-             Debug.Log("size " + j + " sausage size " + s + " n pieces "+n_pieces);
-          }
-         Debug.Log("swallow!");
-         Debug.Log("pieces" + n_pieces);
-         gameControllerObject.busyFalse();
+          int size = 8;
+          int Msize=size-n_pieces+1;
+          for (int j = 0; j<n_pieces; j++){
+              Msize=size-(n_pieces-j)+1;
+              int s = Random.Range(1,Msize);
+              stomach.GetComponent<SpamFood>().AddObject(s);
+              size=size-s;
+              Debug.Log("size " + j + " sausage size " + s + " n pieces "+n_pieces);
+            }
+          Debug.Log("swallow!");
+          Debug.Log("pieces" + n_pieces);
+          gameControllerObject.SetNChews(0);
+          gameControllerObject.busyFalse();
+        }
       }
      //Destroy (this.gameObject);
   }   
