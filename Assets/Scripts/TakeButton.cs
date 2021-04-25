@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TakeButton : MonoBehaviour
 {
-    private float n_chews;
+    private int n_chews;
     private bool listening;
     private GameController gameControllerObject;
     // Start is called before the first frame update
@@ -46,6 +46,7 @@ public class TakeButton : MonoBehaviour
             // extend chewing animation for X seconds
 
             // Stop chewing animation 
+            gameControllerObject.SetNChews(n_chews);
             gameControllerObject.busyFalse();
         }
 

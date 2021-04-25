@@ -15,26 +15,13 @@ public class SwallowButtonScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {/*
-        if (Input.GetMouseButtonDown(0)){ // if left button pressed...
-     Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-     RaycastHit hit ;
-     bool aux = Physics.Raycast(ray,out hit);
-     Debug.Log(aux);
-     if (aux){
-       // the object identified by hit.transform was clicked
-       // do whatever you want
-       if (hit.collider.transform.parent.gameObject.name == "ButtonSwallow"){
-           Debug.Log("swallow!");
-       
-       }
-     }
-   }*/
+    {
     }
     void OnMouseDown(){
-
-         // this object was clicked - do something
-         int n_chews = Random.Range(2,7);
+      if (gameControllerObject.isBusy()==false){
+        gameControllerObject.busyTrue();
+        int n_chews = gameControllerObject.GetNChews();
+         //int n_chews = Random.Range(2,7); //this is for tests
          float init_prob=90f;
          Debug.Log("chews "+n_chews);
 
@@ -51,6 +38,8 @@ public class SwallowButtonScript : MonoBehaviour
           }
          Debug.Log("swallow!");
          Debug.Log("pieces" + n_pieces);
+         gameControllerObject.busyFalse();
+      }
      //Destroy (this.gameObject);
   }   
   int abnormalRandom(int N, float init_prob){

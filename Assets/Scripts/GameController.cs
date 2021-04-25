@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
 
     bool busy=false;
 
+    int n_chews=0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,5 +109,12 @@ public class GameController : MonoBehaviour
     public bool isBusy()
     {
         return this.busy;
+    }
+
+    public void SetNChews(int chews){
+        this.n_chews=chews;
+    }
+    public int GetNChews(){
+        return this.n_chews;
     }
 }
