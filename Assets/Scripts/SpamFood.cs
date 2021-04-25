@@ -13,7 +13,7 @@ public class SpamFood : MonoBehaviour
         var y = Random.Range(min_Y,max_Y);
         GameObject newObject = Instantiate(sampleFood, new Vector3(x, y,-1), Quaternion.Euler(0, 0, Random.Range(0f,360f)));
         newObject.transform.localScale = new Vector3(size*10,10,1);
-        newObject.transform.SetParent (GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        newObject.transform.SetParent (GameObject.FindGameObjectWithTag("man").transform, false);
         
     }
 
