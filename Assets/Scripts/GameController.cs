@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
 
     int n_chews=0;
 
+    string saying="";
     // Start is called before the first frame update
     void Start()
     {
@@ -116,5 +117,15 @@ public class GameController : MonoBehaviour
     }
     public int GetNChews(){
         return this.n_chews;
+    }
+
+    public string GetSaying()
+    {
+        return this.saying;
+    }
+
+    public void SetSaying(string tex)
+    {
+        this.saying=tex;
     }
 }

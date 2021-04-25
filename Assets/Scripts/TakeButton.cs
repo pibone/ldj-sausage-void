@@ -50,13 +50,16 @@ public class TakeButton : MonoBehaviour
             // extend chewing animation for X seconds
             // chewing animation time depends on thirstyness
             Debug.Log("Still chewing. Thisrt level: " + gameControllerObject.GetThirstyness());
+            gameControllerObject.SetSaying("naym... nyam...");
             float chewTime = 0.5f+gameControllerObject.GetThirstyness()*thirstynessFactor/100f;
             yield return new WaitForSeconds(gameControllerObject.RetrieveBoundedValue(chewTime*gameControllerObject.GetNChews()-1f,0.5f,10f));
             Debug.Log("Finished Chewing!!");
-
+            gameControllerObject.SetSaying("...");
             // Stop chewing animation 
             gameControllerObject.SetNChews(n_chews);
             gameControllerObject.busyFalse();
+        }else{
+            gameControllerObject.SetSaying("I'm ... nyam ... busy...");
         }
 
     }
