@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using System.Text;
+*/
 public class sausageCounter : MonoBehaviour
 {
         public Text score, timeText;
@@ -20,12 +24,49 @@ public class sausageCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-         int seconds = (int) (timer % 60);
-         timeText.text = seconds.ToString();
-        score.text=gameControllerObject.GetSausages().ToString();
-        if (seconds >= 30){
-           levelControllerObject.LoadEnding();
+        if (gameControllerObject.GameStarted()){
+            timer += Time.deltaTime;
+            int seconds = (int) (timer % 60);
+            timeText.text = seconds.ToString();
+            score.text=gameControllerObject.GetSausages().ToString();
+            if (seconds >= 30){
+                this.post();
+                levelControllerObject.LoadEnding();
+            }
         }
     }
+
+    /*async System.Threading.Tasks.Task post()
+    {
+        HttpClient client = new HttpClient();
+        client.BaseAddress = new System.Uri(URL);
+
+        client.DefaultRequestHeaders.Accept.Add(
+        new MediaTypeWithQualityHeaderValue("application/json"));
+        string name = gameControllerObject.GetUname();
+        string value = gameControllerObject.GetSausages().ToString();
+        // List data response.
+        var content = new StringContent("{\"name\":"+ name+",\"value\":"+ value +",\"volume\":2}", Encoding.UTF8, "application/json");
+
+        HttpResponseMessage response = client.PostAsync(URL, content).Result;
+        if (response.IsSuccessStatusCode)
+        {
+            // Parse the response body.
+            Debug.Log("Contenido");
+            Debug.Log(response.Content);
+
+            var customerJsonString = await response.Content.ReadAsStringAsync();
+            var dataObjects = JsonConvert.DeserializeObject(customerJsonString);
+            Debug.Log(customerJsonString);
+
+            // LeaderBoard en customerJsonString.ranking
+        }
+        else
+        {
+            Debug.Log("{0} ({1})");
+            Debug.Log(response.StatusCode);
+            Debug.Log(response.ReasonPhrase);
+        }
+        client.Dispose();
+    }*/
 }

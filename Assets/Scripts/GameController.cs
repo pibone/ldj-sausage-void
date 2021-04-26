@@ -27,6 +27,9 @@ public class GameController : MonoBehaviour
 
     int n_chews=0;
 
+    string uname="";
+    bool start=false;
+
     string saying="";
     // Start is called before the first frame update
     void Start()
@@ -160,5 +163,18 @@ public class GameController : MonoBehaviour
 
     public void SetDrinking(bool state){
         this.drinking=state;
+    }
+    public void StartGame(){
+        this.start=true;
+    }
+    public bool GameStarted(){
+        return this.start;
+    }
+    public string getUname(){
+        return this.uname;
+    }
+
+    public void SetUname(string state){
+        this.uname=state;
     }
 }
