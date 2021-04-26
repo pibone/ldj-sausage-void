@@ -42,8 +42,9 @@ public class SwallowButtonScript : MonoBehaviour
           Debug.Log("swallow!");
           Debug.Log("pieces" + n_pieces);
           gameControllerObject.SetNChews(0);
-          gameControllerObject.busyFalse();
+          gameControllerObject.AddSausages(1);
         }
+        gameControllerObject.busyFalse();
       }
      //Destroy (this.gameObject);
   }   
