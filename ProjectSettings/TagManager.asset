@@ -10,6 +10,8 @@ TagManager:
   - gameControllerObject
   - man
   - realMan
+  - score
+  - levelControllerObject
   layers:
   - Default
   - TransparentFX
