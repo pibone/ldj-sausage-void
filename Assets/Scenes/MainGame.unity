@@ -1852,9 +1852,10 @@ GameObject:
   - component: {fileID: 1592225339}
   - component: {fileID: 1592225341}
   - component: {fileID: 1592225340}
+  - component: {fileID: 1592225342}
   m_Layer: 5
   m_Name: Hombre
-  m_TagString: Untagged
+  m_TagString: realMan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1916,6 +1917,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592225338}
   m_CullTransparentMesh: 1
+--- !u!114 &1592225342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592225338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623d27e107f799848afbd4fe46d9b2ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Man: {fileID: 0}
+  WAITING: {fileID: 21300000, guid: 3995b3fed5bec4a8e8b7d42f7576655c, type: 3}
+  SAUSAGE1: {fileID: 21300000, guid: 54b5d6d670a0b432d8cba68c862591f6, type: 3}
+  SAUSAGE2: {fileID: 21300000, guid: 286b1e8598fcd4c97b02b5e06af34da8, type: 3}
+  CHEW1: {fileID: 21300000, guid: bb294f305da964e1fb16e8db26f8c6f0, type: 3}
+  CHEW2: {fileID: 21300000, guid: 5d2a9c0b2c5424cb29f4bed03be2b71d, type: 3}
+  DRINK1: {fileID: 21300000, guid: 8d45b71a1e28245a1a00d43f926558c3, type: 3}
+  DRINK2: {fileID: 21300000, guid: 975741acfbd5b4afb80c9d5e49fa1bae, type: 3}
 --- !u!1 &2058795075
 GameObject:
   m_ObjectHideFlags: 0

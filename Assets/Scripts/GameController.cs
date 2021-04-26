@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
 
     bool busy=false;
 
+    bool chewing=false;
+
     int n_chews=0;
 
     string saying="";
@@ -127,5 +129,12 @@ public class GameController : MonoBehaviour
     public void SetSaying(string tex)
     {
         this.saying=tex;
+    }
+    public bool isChewing(){
+        return this.chewing;
+    }
+
+    public void SetChewing(bool state){
+        this.chewing=state;
     }
 }

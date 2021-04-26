@@ -9,6 +9,7 @@ TagManager:
   - Metaball_liquid
   - gameControllerObject
   - man
+  - realMan
   layers:
   - Default
   - TransparentFX

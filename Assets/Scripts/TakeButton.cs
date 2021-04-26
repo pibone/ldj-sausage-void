@@ -40,7 +40,7 @@ public class TakeButton : MonoBehaviour
 
             // on animation finish
             // Start chewing animation
-
+            gameControllerObject.SetChewing(true);
             // Listen to # keystrokes during 1 second
             n_chews=0;
             listening = true;
@@ -57,6 +57,7 @@ public class TakeButton : MonoBehaviour
             gameControllerObject.SetSaying("...");
             // Stop chewing animation 
             gameControllerObject.SetNChews(n_chews);
+            gameControllerObject.SetChewing(false);
             gameControllerObject.busyFalse();
         }else{
             gameControllerObject.SetSaying("I'm ... nyam ... busy...");
