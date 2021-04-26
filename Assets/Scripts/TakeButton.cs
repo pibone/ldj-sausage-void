@@ -35,10 +35,10 @@ public class TakeButton : MonoBehaviour
             Debug.Log("in");
             gameControllerObject.busyTrue();
             // Send Eating Message
-
             // Start take sausage animation
-
+            gameControllerObject.SetEating(true);
             // on animation finish
+            yield return new WaitForSeconds(1);
             // Start chewing animation
             gameControllerObject.SetChewing(true);
             // Listen to # keystrokes during 1 second

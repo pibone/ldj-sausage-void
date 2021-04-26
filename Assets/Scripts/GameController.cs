@@ -21,6 +21,9 @@ public class GameController : MonoBehaviour
     bool busy=false;
 
     bool chewing=false;
+    bool eating=false;
+    bool swallowing=false;
+    bool drinking=false;
 
     int n_chews=0;
 
@@ -136,5 +139,26 @@ public class GameController : MonoBehaviour
 
     public void SetChewing(bool state){
         this.chewing=state;
+    }
+    public bool isEating(){
+        return this.eating;
+    }
+
+    public void SetEating(bool state){
+        this.eating=state;
+    }
+    public bool isSwallowing(){
+        return this.swallowing;
+    }
+
+    public void SetSwallowing(bool state){
+        this.swallowing=state;
+    }
+    public bool isDrinking(){
+        return this.drinking;
+    }
+
+    public void SetDrinking(bool state){
+        this.drinking=state;
     }
 }

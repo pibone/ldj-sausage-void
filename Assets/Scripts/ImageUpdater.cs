@@ -27,24 +27,19 @@ public class ImageUpdater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameControllerObject.isBusy())
+        if (gameControllerObject.isEating())
         {
             timer += Time.deltaTime;
-            if (step==0)
-            {
-                if (timer<0.5){
+                if (timer<0.5f){
                     Man.sprite=SAUSAGE1;
                 }else if(timer < 1){
                     Man.sprite=SAUSAGE2;    
                 }else{
-                step+=1;
                 timer = 0.0f;
+                gameControllerObject.SetEating(false);
                 }
-            }else if (step==1)
-            {
-                //grab sausage and chew in loop
-
-                if (gameControllerObject.isChewing()){
+        }else if (gameControllerObject.isChewing()){
+                timer += Time.deltaTime;
                     if (timer<0.5){
                         Man.sprite=CHEW1;
                     }else if(timer < 1){
@@ -52,11 +47,28 @@ public class ImageUpdater : MonoBehaviour
                     }else{
                     timer = 0.0f;
                     }
-                }
-            }else{
-                step=0;
-            }
-
+        }else if (gameControllerObject.isDrinking()){
+                timer += Time.deltaTime;
+                    if (timer<0.5){
+                        Man.sprite=DRINK1;
+                    }else if(timer < 1){
+                        Man.sprite=DRINK2;    
+                    }else{
+                    timer = 0.0f;
+                    gameControllerObject.SetDrinking(false);
+                    Man.sprite=WAITING;
+                    }
+        }else if (gameControllerObject.isSwallowing()){
+                timer += Time.deltaTime;
+                    if (timer<0.5){
+                        Man.sprite=WAITING;
+                    }else if(timer < 1){
+                        Man.sprite=SAUSAGE1;    
+                    }else{
+                    timer = 0.0f;
+                    gameControllerObject.SetSwallowing(false);
+                    }
         }
+
     }
 }

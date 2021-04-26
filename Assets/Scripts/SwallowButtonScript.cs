@@ -19,6 +19,7 @@ public class SwallowButtonScript : MonoBehaviour
     }
     void OnMouseDown(){
       if (gameControllerObject.isBusy()==false){
+        gameControllerObject.SetEating(true);
         gameControllerObject.SetSaying("Glup");
         if (gameControllerObject.GetNChews()>0){
           gameControllerObject.busyTrue();
