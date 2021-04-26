@@ -170,7 +170,7 @@ public class GameController : MonoBehaviour
     public bool GameStarted(){
         return this.start;
     }
-    public string getUname(){
+    public string GetUname(){
         return this.uname;
     }
 

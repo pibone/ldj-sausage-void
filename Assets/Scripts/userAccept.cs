@@ -13,6 +13,7 @@ public class userAccept : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         gameControllerObject = GameObject.FindWithTag("gameControllerObject").GetComponent<GameController>();
         thisObject = GameObject.FindWithTag("uname");
         unameButt.onClick.AddListener(startGame);

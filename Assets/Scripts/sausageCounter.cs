@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-/*using System.Net.Http;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Text;
-*/
+
 public class sausageCounter : MonoBehaviour
 {
         public Text score, timeText;
         private GameController gameControllerObject;
         private LevelController levelControllerObject;
         private float timer=0.0f;
-
+        private const string URL = "https://leaderboardsausagevoid.herokuapp.com/api";
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +29,14 @@ public class sausageCounter : MonoBehaviour
             int seconds = (int) (timer % 60);
             timeText.text = seconds.ToString();
             score.text=gameControllerObject.GetSausages().ToString();
-            if (seconds >= 30){
-                this.post();
+            if (seconds >= 60){
+                post();
                 levelControllerObject.LoadEnding();
             }
         }
     }
 
-    /*async System.Threading.Tasks.Task post()
+    async System.Threading.Tasks.Task post()
     {
         HttpClient client = new HttpClient();
         client.BaseAddress = new System.Uri(URL);
@@ -46,8 +46,9 @@ public class sausageCounter : MonoBehaviour
         string name = gameControllerObject.GetUname();
         string value = gameControllerObject.GetSausages().ToString();
         // List data response.
-        var content = new StringContent("{\"name\":"+ name+",\"value\":"+ value +",\"volume\":2}", Encoding.UTF8, "application/json");
-
+        var content = new StringContent("{\"name\":\""+ name+"\",\"value\":"+ value.ToString() +",\"volume\":2}", Encoding.UTF8, "application/json");
+            Debug.Log("Contenido");
+            Debug.Log("{\"name\":"+ name+",\"value\":"+ value.ToString() +",\"volume\":2}");
         HttpResponseMessage response = client.PostAsync(URL, content).Result;
         if (response.IsSuccessStatusCode)
         {
@@ -68,5 +69,5 @@ public class sausageCounter : MonoBehaviour
             Debug.Log(response.ReasonPhrase);
         }
         client.Dispose();
-    }*/
+    }
 }

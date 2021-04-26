@@ -12,6 +12,7 @@ TagManager:
   - realMan
   - score
   - levelControllerObject
+  - uname
   layers:
   - Default
   - TransparentFX
